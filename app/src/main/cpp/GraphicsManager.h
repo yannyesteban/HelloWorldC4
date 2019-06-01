@@ -40,6 +40,10 @@ public:
     ~GraphicsManager();
     int32_t getRenderWidth() { return mRenderWidth; }
     int32_t getRenderHeight() { return mRenderHeight; }
+
+    int32_t getScreenWidth() { return mScreenWidth; }
+    int32_t getScreenHeight() { return mScreenHeight; }
+
     //GraphicsElement* registerElement(int32_t pHeight, int32_t pWidth);
 
     GLfloat* getProjectionMatrix() { return mProjectionMatrix[0]; }
@@ -53,12 +57,19 @@ public:
     TextureProperties* loadTexture(Resource& pResource);
 
     GLuint loadShader(const char* pVertexShader, const char* pFragmentShader);
+
+    GLuint loadVertexBuffer(const void* pVertexBuffer,  int32_t pVertexBufferSize);
 private:
+    status initializeRenderBuffer();
+    struct RenderVertex {
+        GLfloat x, y, u, v;
+    };
+
     android_app* mApplication;
 
     int32_t mRenderWidth;
     int32_t mRenderHeight;
-
+    int32_t mScreenWidth; int32_t mScreenHeight;
     EGLDisplay mDisplay; EGLSurface mSurface; EGLContext mContext;
     GLfloat mProjectionMatrix[4][4];
 
@@ -66,8 +77,16 @@ private:
     TextureProperties mTextures[32]; int32_t mTextureCount;
     //GraphicsElement* mElements[1024];
     GLuint mShaders[32]; int32_t mShaderCount;
-
+    GLuint mVertexBuffers[32]; int32_t mVertexBufferCount;
     //int32_t mElementCount;
+
+
+    // Rendering resources.
+    GLint mScreenFrameBuffer;
+    GLuint mRenderFrameBuffer; GLuint mRenderVertexBuffer;
+    GLuint mRenderTexture; GLuint mRenderShaderProgram;
+    GLuint aPosition; GLuint aTexture;
+    GLuint uProjection; GLuint uTexture;
 
     GraphicsComponent* mComponents[32]; int32_t mComponentCount;
 };

@@ -4,6 +4,7 @@
 
 #ifndef HELLOWORLDC2_SPRITE_H
 #define HELLOWORLDC2_SPRITE_H
+
 #include "GraphicsManager.h"
 #include "Resource.h"
 #include "Types.h"

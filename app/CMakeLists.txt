@@ -29,7 +29,7 @@ add_library(
         src/main/cpp/Resource.cpp
         src/main/cpp/Sprite.cpp
         src/main/cpp/SpriteBach.cpp
-
+        src/main/cpp/StarField.cpp
 
 
 

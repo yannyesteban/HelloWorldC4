@@ -13,6 +13,7 @@
 #include "Resource.h"
 #include "Ship.h"
 #include "SpriteBatch.h"
+#include "StarField.h"
 #include "TimeManager.h"
 #include "Types.h"
 class DroidBlaster : public ActivityHandler {
@@ -27,9 +28,11 @@ private:
 
     Resource mAsteroidTexture;
     Resource mShipTexture;
+    Resource mStarTexture;
 
     Asteroid mAsteroids;
     Ship mShip;
+    StarField mStarField;
     SpriteBatch mSpriteBatch;
 protected:
     status onActivate();
