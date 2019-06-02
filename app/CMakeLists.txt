@@ -30,6 +30,7 @@ add_library(
         src/main/cpp/Sprite.cpp
         src/main/cpp/SpriteBach.cpp
         src/main/cpp/StarField.cpp
+        src/main/cpp/SoundManager.cpp
 
 
 
