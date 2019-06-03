@@ -31,7 +31,8 @@ add_library(
         src/main/cpp/SpriteBach.cpp
         src/main/cpp/StarField.cpp
         src/main/cpp/SoundManager.cpp
-
+        src/main/cpp/Sound.cpp
+        src/main/cpp/SoundQueue.cpp
 
 
         )
@@ -86,5 +87,5 @@ target_link_libraries(helloworld-c
         GLESv2
         libpng
         z
-
+        OpenSLES
         )

@@ -31,3 +31,19 @@ status Resource::read(void* pBuffer, size_t pCount) {
 bool Resource::operator==(const Resource& pOther) {
     return !strcmp(mPath, pOther.mPath);
 }
+
+ResourceDescriptor Resource::descriptor() {
+    ResourceDescriptor lDescriptor = { -1, 0, 0 };
+    AAsset* lAsset = AAssetManager_open(mAssetManager, mPath,
+                                        AASSET_MODE_UNKNOWN);
+    if (lAsset != NULL) {
+        lDescriptor.mDescriptor = AAsset_openFileDescriptor(
+                lAsset, &lDescriptor.mStart, &lDescriptor.mLength);
+        AAsset_close(lAsset);
+    }
+    return lDescriptor;
+}
+
+off_t Resource::getLength() {
+    return AAsset_getLength(mAsset);
+}

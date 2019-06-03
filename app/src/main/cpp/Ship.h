@@ -8,13 +8,19 @@
 
 #include "GraphicsManager.h"
 #include "Sprite.h"
+
+#include "SoundManager.h"
+#include "Sound.h"
+
 class Ship {
 public:
-    Ship(android_app* pApplication, GraphicsManager& pGraphicsManager);
-    void registerShip(Sprite* pGraphics);
+    Ship(android_app* pApplication, GraphicsManager& pGraphicsManager, SoundManager& pSoundManager);
+    void registerShip(Sprite* pGraphics, Sound* pCollisionSound);
     void initialize();
 private:
     GraphicsManager& mGraphicsManager;
+    SoundManager& mSoundManager;
     Sprite* mGraphics;
+    Sound* mCollisionSound;
 };
 #endif //HELLOWORLDC_SHIP_H

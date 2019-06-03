@@ -7,6 +7,14 @@
 
 #include "Types.h"
 #include <android_native_app_glue.h>
+
+struct ResourceDescriptor {
+    int32_t mDescriptor;
+    off_t mStart;
+    off_t mLength;
+};
+
+
 class Resource {
 public:
     Resource(android_app* pApplication, const char* pPath);
@@ -15,6 +23,10 @@ public:
 
     void close();
     status read(void* pBuffer, size_t pCount);
+
+    ResourceDescriptor descriptor();
+    off_t getLength();
+
     bool operator==(const Resource& pOther);
 private:
     const char* mPath;

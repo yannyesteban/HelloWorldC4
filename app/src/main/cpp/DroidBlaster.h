@@ -12,6 +12,7 @@
 #include "PhysicsManager.h"
 #include "Resource.h"
 #include "Ship.h"
+#include "SoundManager.h"
 #include "SpriteBatch.h"
 #include "StarField.h"
 #include "TimeManager.h"
@@ -24,11 +25,16 @@ private:
     TimeManager mTimeManager;
     GraphicsManager mGraphicsManager;
     PhysicsManager mPhysicsManager;
+
+    SoundManager mSoundManager;
+
     EventLoop mEventLoop;
 
     Resource mAsteroidTexture;
     Resource mShipTexture;
     Resource mStarTexture;
+    Resource mBGM;
+    Resource mCollisionSound;
 
     Asteroid mAsteroids;
     Ship mShip;
